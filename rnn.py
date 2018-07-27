@@ -39,9 +39,9 @@ lr = 0.0001
 batch_size = 10
 #clip = 0.25
 
-show_interval = 10
-valid_interval = 100
-generate_interval = 100
+show_interval = 100
+valid_interval = 500
+generate_interval = 500
 lr_update_interval = 10000
 log_interval = 10000
 #----
@@ -50,7 +50,7 @@ output_size = len(corpus.vocab)
 
 model = MyRNN(output_size, hidden_size, n_layers, dropout=0.5)
 model.to(device)
-criterion = nn.CrossEntropyLoss()
+criterion = nn.NLLLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 
 
